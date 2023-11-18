@@ -11,16 +11,20 @@
  */
 void bubble_sort(int *array, size_t size)
 {
-size_t i, tmp, j;
-for (i = 1; i <= size; i++)
+size_t i, tmp = 0, j;
+if (size < 2)
+	return;
+for (i = 0; i < size; i++)
 {
-for (j = 1; j <= size; j++)
-if (array[j] < array[j - 1])
+for (j = 0; j < size; j++)
 {
-tmp = array[j - 1];
-array[j - 1] = array[j];
-array[j] = tmp;
+if (array[j] > array[j + 1] && array[j + 1])
+{
+tmp = array[j];
+array[j] = array[j + 1];
+array[j + 1] = tmp;
 print_array(array, size);
+}
 }
 }
 }
